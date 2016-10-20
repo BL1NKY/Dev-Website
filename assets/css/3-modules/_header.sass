@@ -1,0 +1,129 @@
+.home-wrap
+    header
+        width: 135px
+        background-color: $white
+        padding: 30px 0
+
+        .header-position
+            +position(fixed, 30px null 30px 0)
+            width: 135px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+
+        .logo
+            +hide-text
+            max-width: 135px
+            background:
+                image: url(/assets/img/logo-tn.svg)
+                repeat: no-repeat
+                position: center
+                size: contain
+            padding: 0
+            margin: 0
+            height: 80px
+
+        .site-nav
+            ul
+                list-style-type: none
+                padding: 0 20px 0 0
+                margin: 20px 0
+                text-align: right
+
+                li
+                    margin-bottom: 10px
+
+                    &:last-child
+                        margin-bottom: 0px
+
+        .email-link
+            display: block
+            text-align: right
+            padding-right: 20px
+
+        .mobile-nav-toggle
+            +size(50px)
+            // background-color: pink
+            margin-right: 20px
+            display: none
+            align-items: center
+            cursor: pointer
+
+            span,
+            span:before,
+            span:after
+                content: ""
+                display: block
+                height: 3px
+                width: 100%
+                background: $navToggle
+                position: relative
+
+                transition: all 0.3s ease-in-out
+
+            span
+                top: 1.5px
+
+
+            span:before
+                top: 15px
+
+            span:after
+                bottom: 18px
+
+            &.is-open span
+                background-color: transparent
+
+            &.is-open span:before,
+                transform: rotate(45deg)
+                transform-origin: center
+                top: 0
+            &.is-open span:after
+                transform: rotate(-45deg)
+                transform-origin: center
+                bottom: 3px
+
+    .mobile-nav
+        display: none
+        position: absolute
+        width: 100%
+        background-color: $white
+        padding: 30px 0 20px
+        transform: translateY(-100%)
+        transition: all 0.3s ease-in-out
+
+        ul
+            list-style-type: none
+            margin: 0
+            padding: 0
+
+        li
+            text-align: center
+            margin-bottom: 10px
+
+
+@media (max-width: 775px)
+    .home-wrap
+        header
+            width: auto
+            padding: 20px 0
+
+            .header-position
+                width: auto
+                +position(relative, auto null auto auto)
+                flex-direction: row
+                align-items: center
+
+            .site-nav,
+            .email-link
+                display: none
+
+            .logo
+                height: 45px
+
+            .mobile-nav-toggle
+                display: flex
+
+        .mobile-nav.is-open
+            display: block
+            transform: translateY(0%)
