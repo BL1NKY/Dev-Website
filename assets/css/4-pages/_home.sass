@@ -45,7 +45,7 @@
         display: block
 
     .col-1
-        max-width: 100%
+        width: auto
 
     .col-50
         width: auto
@@ -62,5 +62,7 @@
     &.outdented
         text-indent: -0.725em
 
-        @media (max-width: 640px)
+    @media (max-width: 640px)
+        text-align: center
+        .outdent
             text-indent: 0

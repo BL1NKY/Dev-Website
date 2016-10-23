@@ -37,6 +37,17 @@ section.mentoring
         cursor: pointer
         transition: all 0.3s ease-in-out
 
+        &.back-btn
+            background:
+                color: $white
+                image: url(/assets/img/back-icon.svg)
+                position: 31px center
+                repeat: no-repeat
+                size: 15px 26px
+            display: none
+            path
+                fill: $mentoring-bg
+
 
         &.has-bubble-open .bubble
             opacity: 1
@@ -57,3 +68,31 @@ section.mentoring
         transition: all 0.15s cubic-bezier(0, 0.5, 0.35, 1.5)
         transform: scale(0)
         transform-origin: bottom left
+
+@media (max-width: 640px)
+    section.mentoring
+
+        .col-1
+            padding: 0px 20px 50px
+
+        .faces
+            margin: 0
+            width: 115px * 7
+            top: 230px
+            left: 0px
+
+        .face
+            margin: 0
+            margin-right: 35px
+            display: inline-block
+
+            &.back-btn
+                display: inline-block
+
+        .bubble
+            bottom: 100px
+            left: -20px
+            box-sizing: border-box
+            margin-left: 0px
+            margin-right: 10px
+            transform: translateY(10px)
