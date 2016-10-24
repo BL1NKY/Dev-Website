@@ -7,9 +7,14 @@ $( document ).ready(function() {
     $(window).scroll(function () {
         youtubeVidScroll();
         startMentoring();
+        startArticles();
     });
 
     resize();
+
+    setInterval(function () {
+        articleTada();
+    }, 3000);
 
 });
 
@@ -51,7 +56,7 @@ function mentoringBubbleClick() {
 
 function startMentoring() {
     var wScroll = $(window).scrollTop(),
-        triggerPoint = $("section.mentoring").offset().top - 500;
+        triggerPoint = $("section.mentoring").offset().top - $(window).height() / 2;
 
 
     if(triggerPoint < wScroll) {
@@ -102,4 +107,23 @@ function mentoringWideStart() {
         "left":"0px"
     });
     $(".face:nth-child(3)").addClass("has-bubble-open").siblings().removeClass("has-bubble-open");
+}
+
+function startArticles() {
+    var wScroll = $(window).scrollTop(),
+        triggerPoint = $("section.articles").offset().top - $(window).height() / 2;
+
+    if (triggerPoint < wScroll) {
+        $(".article-thumb").each(function (i) {
+            setTimeout(function () {
+                $(".article-thumb").eq(i).addClass("is-visible");
+            }, 150 * i);
+        });
+    }
+}
+
+function articleTada() {
+    var randNum = Math.floor(Math.random() * $(".article-thumb").length) + 1;
+
+    $(".article-thumb").eq(randNum).addClass("is-emph").siblings().removeClass("is-emph");
 }
