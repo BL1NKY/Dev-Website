@@ -1,0 +1,24 @@
+section.vine
+    background:
+        color: $vine-bg
+        image: url(/assets/img/vine-bg.jpg)
+        size: cover
+    color: $white
+
+    iframe
+        box-shadow: 0px 3px 20px $box-shadow
+
+    .home-cta
+        color: $vine-bg
+        
+    .desc
+        display: flex
+        align-items: center
+        +clearfix
+
+    @media (max-width: 640px)
+        .col-1
+            text-align: center
+
+        .desc
+            margin-top: 50px
